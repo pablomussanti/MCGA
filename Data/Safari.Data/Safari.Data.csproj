@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Safari.Data</RootNamespace>
     <AssemblyName>Safari.Data</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,10 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClienteDAC.cs" />
     <Compile Include="DataAccessComponent.cs" />
     <Compile Include="EspecieDAC.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="MedicoDAC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalaDAC.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
