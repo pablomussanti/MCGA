@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Serialization;
+using Safari.UI.Process;
 
 namespace Safari.UI.Web.Controllers
 {
@@ -15,7 +17,7 @@ namespace Safari.UI.Web.Controllers
 
         public ActionResult Index()
         {
-            var biz = new EspecieComponent();
+            var biz = new EspecieProcess();
             var lista = biz.ListarTodos();
             return View(lista);
         }
@@ -23,7 +25,7 @@ namespace Safari.UI.Web.Controllers
         // GET: Especie/Details/5
         public ActionResult Details(int id)
         {
-            var biz = new EspecieComponent();
+            var biz = new EspecieProcess();
             var Especie = biz.GetByID(id);
             return View(Especie);
         }
@@ -40,8 +42,8 @@ namespace Safari.UI.Web.Controllers
         {
             try
             {
-                var biz = new EspecieComponent();
-                var model = biz.Agregar(especie);
+                var biz = new EspecieProcess();
+                var model = biz.Create(especie);
 
                 return RedirectToAction("Index");
             }
@@ -54,7 +56,7 @@ namespace Safari.UI.Web.Controllers
         // GET: Especie/Edit/5
         public ActionResult Edit(int id)
         {
-            var biz = new EspecieComponent();
+            var biz = new EspecieProcess();
             var Especie = biz.GetByID(id);
             return View(Especie);
         }
@@ -63,7 +65,7 @@ namespace Safari.UI.Web.Controllers
         [HttpPost]
         public ActionResult Edit(Especie especie)
         {
-            var biz = new EspecieComponent();
+            var biz = new EspecieProcess();
             bool result = biz.Edit(especie);
 
             if (result) { return RedirectToAction("Index"); }
@@ -74,7 +76,7 @@ namespace Safari.UI.Web.Controllers
         // GET: Especie/Delete/5
         public ActionResult Delete(int id)
         {
-            var biz = new EspecieComponent();
+            var biz = new EspecieProcess();
             var Especie = biz.GetByID(id);
             return View(Especie);
         }
@@ -83,7 +85,7 @@ namespace Safari.UI.Web.Controllers
         [HttpPost]
         public ActionResult Delete(Especie especie)
         {
-            var biz = new EspecieComponent();
+            var biz = new EspecieProcess();
             bool result = biz.Delete(especie.Id);
 
             if (result) { return RedirectToAction("Index"); }
@@ -95,7 +97,7 @@ namespace Safari.UI.Web.Controllers
 
         public ActionResult ExportarEspeciesCSV()
         {
-            var biz = new EspecieComponent();
+            var biz = new EspecieProcess();
             var especies = biz.ListarTodos();
 
 
@@ -126,7 +128,7 @@ namespace Safari.UI.Web.Controllers
 
         public void ExportarEspeciesXML()
         {
-            var biz = new EspecieComponent();
+            var biz = new EspecieProcess();
             var especies = biz.ListarTodos();
 
             var serializer = new XmlSerializer(especies.GetType());

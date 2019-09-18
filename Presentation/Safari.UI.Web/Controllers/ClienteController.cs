@@ -1,4 +1,5 @@
 ﻿using Safari.Entities;
+using Safari.UI.Process;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Safari.UI.Web.Controllers
         // GET: Cliente
         public ActionResult Index()
         {
-            var biz = new ClienteComponent();
+            var biz = new ClienteProcess();
             var lista = biz.ListarTodos();
             return View(lista);
         }
@@ -20,7 +21,7 @@ namespace Safari.UI.Web.Controllers
         // GET: Cliente/Details/5
         public ActionResult Details(int id)
         {
-            var biz = new ClienteComponent();
+            var biz = new ClienteProcess();
             var Cliente = biz.GetByID(id);
             return View(Cliente);
         }
@@ -37,8 +38,8 @@ namespace Safari.UI.Web.Controllers
         {
             try
             {
-                var biz = new ClienteComponent();
-                var model = biz.Agregar(cliente);
+                var biz = new ClienteProcess();
+                var model = biz.Create(cliente);
 
                 return RedirectToAction("Index");
             }
@@ -51,7 +52,7 @@ namespace Safari.UI.Web.Controllers
         // GET: Cliente/Edit/5
         public ActionResult Edit(int id)
         {
-            var biz = new ClienteComponent();
+            var biz = new ClienteProcess();
             var Cliente = biz.GetByID(id);
             return View(Cliente);
         }
@@ -60,7 +61,7 @@ namespace Safari.UI.Web.Controllers
         [HttpPost]
         public ActionResult Edit(Cliente cliente)
         {
-            var biz = new ClienteComponent();
+            var biz = new ClienteProcess();
             bool result = biz.Edit(cliente);
 
             if (result) { return RedirectToAction("Index"); }
@@ -70,7 +71,7 @@ namespace Safari.UI.Web.Controllers
         // GET: Cliente/Delete/5
         public ActionResult Delete(int id)
         {
-            var biz = new ClienteComponent();
+            var biz = new ClienteProcess();
             var Cliente = biz.GetByID(id);
             return View(Cliente);
         }
@@ -79,7 +80,7 @@ namespace Safari.UI.Web.Controllers
         [HttpPost]
         public ActionResult Delete(Cliente cliente)
         {
-            var biz = new ClienteComponent();
+            var biz = new ClienteProcess();
             bool result = biz.Delete(cliente.Id);
 
             if (result) { return RedirectToAction("Index"); }

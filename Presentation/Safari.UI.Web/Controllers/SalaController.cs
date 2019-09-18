@@ -1,4 +1,5 @@
 ﻿using Safari.Entities;
+using Safari.UI.Process;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Safari.UI.Web.Controllers
         // GET: Sala
         public ActionResult Index()
         {
-            var biz = new SalaComponent();
+            var biz = new SalaProcess();
             var lista = biz.ListarTodos();
             return View(lista);
         }
@@ -20,7 +21,7 @@ namespace Safari.UI.Web.Controllers
         // GET: Sala/Details/5
         public ActionResult Details(int id)
         {
-            var biz = new SalaComponent();
+            var biz = new SalaProcess();
             var lista = biz.ListarTodos();
             return View(lista);
         }
@@ -37,8 +38,8 @@ namespace Safari.UI.Web.Controllers
         {
             try
             {
-                var biz = new SalaComponent();
-                var model = biz.Agregar(sala);
+                var biz = new SalaProcess();
+                var model = biz.Create(sala);
 
                 return RedirectToAction("Index");
             }
@@ -51,7 +52,7 @@ namespace Safari.UI.Web.Controllers
         // GET: Sala/Edit/5
         public ActionResult Edit(int id)
         {
-            var biz = new SalaComponent();
+            var biz = new SalaProcess();
             var Sala = biz.GetByID(id);
             return View(Sala);
         }
@@ -60,7 +61,7 @@ namespace Safari.UI.Web.Controllers
         [HttpPost]
         public ActionResult Edit(Sala sala)
         {
-            var biz = new SalaComponent();
+            var biz = new SalaProcess();
             bool result = biz.Edit(sala);
 
             if (result) { return RedirectToAction("Index"); }
@@ -70,7 +71,7 @@ namespace Safari.UI.Web.Controllers
         // GET: Sala/Delete/5
         public ActionResult Delete(int id)
         {
-            var biz = new SalaComponent();
+            var biz = new SalaProcess();
             var Sala = biz.GetByID(id);
             return View(Sala);
         }
@@ -79,7 +80,7 @@ namespace Safari.UI.Web.Controllers
         [HttpPost]
         public ActionResult Delete(Sala sala)
         {
-            var biz = new SalaComponent();
+            var biz = new SalaProcess();
             bool result = biz.Delete(sala.Id);
 
             if (result) { return RedirectToAction("Index"); }

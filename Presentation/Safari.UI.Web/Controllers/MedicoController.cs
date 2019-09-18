@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Safari.UI.Process;
 
 namespace Safari.UI.Web.Controllers
 {
@@ -12,7 +13,7 @@ namespace Safari.UI.Web.Controllers
         // GET: Medico
         public ActionResult Index()
         {
-            var biz = new MedicoComponent();
+            var biz = new MedicoProcess();
             var lista = biz.ListarTodos();
             return View(lista);
         }
@@ -20,7 +21,7 @@ namespace Safari.UI.Web.Controllers
         // GET: Medico/Details/5
         public ActionResult Details(int id)
         {
-            var biz = new MedicoComponent();
+            var biz = new MedicoProcess();
             var Medico = biz.GetByID(id);
             return View(Medico);
         }
@@ -37,8 +38,8 @@ namespace Safari.UI.Web.Controllers
         {
             try
             {
-                var biz = new MedicoComponent();
-                var model = biz.Agregar(medico);
+                var biz = new MedicoProcess();
+                var model = biz.Create(medico);
 
                 return RedirectToAction("Index");
             }
@@ -51,7 +52,7 @@ namespace Safari.UI.Web.Controllers
         // GET: Medico/Edit/5
         public ActionResult Edit(int id)
         {
-            var biz = new MedicoComponent();
+            var biz = new MedicoProcess();
             var Medico = biz.GetByID(id);
             return View(Medico);
         }
@@ -60,7 +61,7 @@ namespace Safari.UI.Web.Controllers
         [HttpPost]
         public ActionResult Edit(Medico medico)
         {
-            var biz = new MedicoComponent();
+            var biz = new MedicoProcess();
             bool result = biz.Edit(medico);
 
             if (result) { return RedirectToAction("Index"); }
@@ -70,7 +71,7 @@ namespace Safari.UI.Web.Controllers
         // GET: Medico/Delete/5
         public ActionResult Delete(int id)
         {
-            var biz = new MedicoComponent();
+            var biz = new MedicoProcess();
             var Medico = biz.GetByID(id);
             return View(Medico);
         }
@@ -79,7 +80,7 @@ namespace Safari.UI.Web.Controllers
         [HttpPost]
         public ActionResult Delete(Medico medico)
         {
-            var biz = new MedicoComponent();
+            var biz = new MedicoProcess();
             bool result = biz.Delete(medico.Id);
 
             if (result) { return RedirectToAction("Index"); }
