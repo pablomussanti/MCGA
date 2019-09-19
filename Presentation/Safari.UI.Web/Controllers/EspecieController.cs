@@ -14,14 +14,14 @@ namespace Safari.UI.Web.Controllers
     public class EspecieController : Controller
     {
         // GET: Especie
-
+        [Authorize]
         public ActionResult Index()
         {
             var biz = new EspecieProcess();
             var lista = biz.ListarTodos();
             return View(lista);
         }
-
+        [Authorize]
         // GET: Especie/Details/5
         public ActionResult Details(int id)
         {
@@ -29,13 +29,13 @@ namespace Safari.UI.Web.Controllers
             var Especie = biz.GetByID(id);
             return View(Especie);
         }
-
+        [Authorize]
         // GET: Especie/Create
         public ActionResult Create()
         {
             return View();
         }
-
+        [Authorize]
         // POST: Especie/Create
         [HttpPost]
         public ActionResult Create(Especie especie)
@@ -52,7 +52,7 @@ namespace Safari.UI.Web.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         // GET: Especie/Edit/5
         public ActionResult Edit(int id)
         {
@@ -60,7 +60,7 @@ namespace Safari.UI.Web.Controllers
             var Especie = biz.GetByID(id);
             return View(Especie);
         }
-
+        [Authorize]
         // POST: Especie/Edit/5
         [HttpPost]
         public ActionResult Edit(Especie especie)
@@ -72,7 +72,7 @@ namespace Safari.UI.Web.Controllers
             else { return View(); }
 
         }
-
+        [Authorize]
         // GET: Especie/Delete/5
         public ActionResult Delete(int id)
         {
@@ -80,7 +80,7 @@ namespace Safari.UI.Web.Controllers
             var Especie = biz.GetByID(id);
             return View(Especie);
         }
-
+        [Authorize]
         // POST: Especie/Delete/5
         [HttpPost]
         public ActionResult Delete(Especie especie)

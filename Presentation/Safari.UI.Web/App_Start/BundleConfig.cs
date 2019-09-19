@@ -26,7 +26,7 @@ namespace Safari.UI.Web
                       "~/Scripts/respond.js"));
 
               bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap1.css",
+                      "~/Content/bootstrap-superhero.css",
                       //"~/Content/vendor/bootstrap/css/bootstrap.min.css",
                       //"~/Content/css/business-frontpage.css",
                       "~/Content/site.css"));

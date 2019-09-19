@@ -3,7 +3,7 @@
     // Description - Used by search engines. Aim for more than 160 characters.
     ViewBag.Description = "A professional ASP.NET MVC template for building secure, fast, robust and adaptable web applications or sites. It provides the minimum amount of code required on top of the default MVC template provided by Microsoft.";
     // Author - (Optional) Used by search engines. The author of the page.
-    ViewBag.Author = "Victor Hugo Contreras";
+    ViewBag.Author = "Pablo Mussanti";
     // Referrer - (Optional) Controls what is sent in the HTTP referrer header when a client navigates from your page
     //            to an external site for increased user privacy and security. See ReferrerMode for more information.
     ViewBag.ReferrerMode = ReferrerMode.OriginWhenCrossOrigin;
@@ -14,7 +14,7 @@
     // on each page as an example.
     // These helpers make it very easy to add the meta tags. For best performance, see what tags are generated and
     // hand code them yourself instead of using these helpers.
-    ViewBag.TwitterCard = new SummaryLargeImageTwitterCard("@VictorMCGA");
+    ViewBag.TwitterCard = new SummaryLargeImageTwitterCard("@PabloM");
     ViewBag.OpenGraph = new OpenGraphWebsite(
         ViewBag.Title,
         new OpenGraphImage(Url.AbsoluteContent("~/content/icons/open-graph-1200x630.png")) { Height = 630, Type = ContentType.Png, Width = 1200 })
@@ -26,12 +26,21 @@
 
 @*<h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>*@
+<div align="center" class="container">
+    <div class="row" align="center">
+        <div class="col-md-8 mb-5">
+            <h2>Que hacemos?</h2>
+            <hr>
+            <p>
+                Mision: Crear conciencia social para el bienestar animal, fortaleciendo el vínculo emocional que existe entre las personas y sus animales de compañía, mediante la prestación de nuestros servicios médicos veterinarios y complementarios a la comunidad Antioqueña.
 
-<div class="row" align="center">
-    <div class="col-md-8 mb-5">
-        <h2>What We Do</h2>
-        <hr>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
+                Nuestro equipo de trabajo comparte valores y principios éticos, que brindan el amor, el respeto, la responsabilidad y el compromiso para con nosotros mismos, con nuestros usuarios y pacientes.
+            </p>
+            <p>
+                Vision: Seremos la institución veterinaria líder en la promoción de la salud animal, educando a la comunidad y trasmitiendo los valores humanos necesarios para transformar nuestra sociedad, participando  en su transformación hacia el Departamento con la mejor sanidad, vigilancia y trato humanitario para con los animales.
+
+                Nuestras instalaciones, dotadas con tecnología de vanguardia y nuestro equipo médico veterinario y técnico, calificado y comprometido con el bienestar animal.
+            </p>
+        </div>
     </div>
- </div>
+</div>

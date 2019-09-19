@@ -13,7 +13,7 @@ namespace Safari.UI.Web.Controllers
         {
             return View();
         }
-        [Authorize]
+    
         [Route("acerca-de-nosotros", Name = "HomeControllerRouteAbout")]
         public ActionResult About()
         {
@@ -21,7 +21,7 @@ namespace Safari.UI.Web.Controllers
             return View();
         }
 
-        [Authorize(Roles ="Admin")]
+      
         [Route("nuestra-ubicacion", Name = "HomeControllerRouteContact")]
         public ActionResult Contact()
         {

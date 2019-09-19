@@ -8,6 +8,7 @@ using Safari.UI.Process;
 
 namespace Safari.UI.Web.Controllers
 {
+    [Authorize]
     public class MedicoController : Controller
     {
         // GET: Medico

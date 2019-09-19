@@ -10,6 +10,7 @@ namespace Safari.UI.Web.Controllers
 {
     public class ClienteController : Controller
     {
+        [Authorize]
         // GET: Cliente
         public ActionResult Index()
         {
@@ -17,7 +18,7 @@ namespace Safari.UI.Web.Controllers
             var lista = biz.ListarTodos();
             return View(lista);
         }
-
+        [Authorize]
         // GET: Cliente/Details/5
         public ActionResult Details(int id)
         {
@@ -25,13 +26,13 @@ namespace Safari.UI.Web.Controllers
             var Cliente = biz.GetByID(id);
             return View(Cliente);
         }
-
+        [Authorize]
         // GET: Cliente/Create
         public ActionResult Create()
         {
             return View();
         }
-
+        [Authorize]
         // POST: Cliente/Create
         [HttpPost]
         public ActionResult Create(Cliente cliente)
@@ -48,7 +49,7 @@ namespace Safari.UI.Web.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         // GET: Cliente/Edit/5
         public ActionResult Edit(int id)
         {
@@ -56,7 +57,7 @@ namespace Safari.UI.Web.Controllers
             var Cliente = biz.GetByID(id);
             return View(Cliente);
         }
-
+        [Authorize]
         // POST: Cliente/Edit/5
         [HttpPost]
         public ActionResult Edit(Cliente cliente)
@@ -67,7 +68,7 @@ namespace Safari.UI.Web.Controllers
             if (result) { return RedirectToAction("Index"); }
             else { return View(); }
         }
-
+        [Authorize]
         // GET: Cliente/Delete/5
         public ActionResult Delete(int id)
         {
@@ -75,7 +76,7 @@ namespace Safari.UI.Web.Controllers
             var Cliente = biz.GetByID(id);
             return View(Cliente);
         }
-
+        [Authorize]
         // POST: Cliente/Delete/5
         [HttpPost]
         public ActionResult Delete(Cliente cliente)
