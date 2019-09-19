@@ -13,6 +13,8 @@ namespace Safari.UI.Web.Areas.Admin.Controllers
         private ILoggingService _loggingService;
 
         public HomeController(ILoggingService loggingService)
+
+
         {
             _loggingService = loggingService;
         }

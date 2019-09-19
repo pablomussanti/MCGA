@@ -14,7 +14,7 @@ namespace Safari.Data
     {
         public Medico Create(Medico medico)
         {
-            const string SQL_STATEMENT = "INSERT INTO Medico ([Nombre],[Apellido],[Email],[Telefono],[TipoMatricula],[FechaNacimiento],[NumeroMatricula],[Especialidad]) VALUES(@Nombre,@Apellido,@Email,@Telefono,@TipoMatricula,@FechaNacimiento,@NumeroMatricula,@Especialidad); SELECT SCOPE_IDENTITY();";
+            const string SQL_STATEMENT = "INSERT INTO Medicos ([Nombre],[Apellido],[Email],[Telefono],[TipoMatricula],[FechaNacimiento],[NumeroMatricula],[Especialidad]) VALUES(@Nombre,@Apellido,@Email,@Telefono,@TipoMatricula,@FechaNacimiento,@NumeroMatricula,@Especialidad); SELECT SCOPE_IDENTITY();";
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
@@ -34,7 +34,7 @@ namespace Safari.Data
 
         public List<Medico> Read()
         {
-            const string SQL_STATEMENT = "SELECT [Id], [Nombre],[Apellido],[Email],[Telefono],[TipoMatricula],[FechaNacimiento],[NumeroMatricula],[Especialidad] FROM Medico ";
+            const string SQL_STATEMENT = "SELECT [Id], [Nombre],[Apellido],[Email],[Telefono],[TipoMatricula],[FechaNacimiento],[NumeroMatricula],[Especialidad] FROM Medicos ";
 
             List<Medico> result = new List<Medico>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
@@ -54,7 +54,7 @@ namespace Safari.Data
 
         public Medico ReadBy(int id)
         {
-            const string SQL_STATEMENT = "SELECT [Id], [Nombre],[Apellido],[Email],[Telefono],[TipoMatricula],[FechaNacimiento],[NumeroMatricula],[Especialidad] FROM Medico WHERE [Id]=@Id ";
+            const string SQL_STATEMENT = "SELECT [Id], [Nombre],[Apellido],[Email],[Telefono],[TipoMatricula],[FechaNacimiento],[NumeroMatricula],[Especialidad] FROM Medicos WHERE [Id]=@Id ";
             Medico medico = null;
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
@@ -74,7 +74,7 @@ namespace Safari.Data
 
         public void Update(Medico medico)
         {
-            const string SQL_STATEMENT = "UPDATE Medico SET [Nombre]= @Nombre,[Apellido] = @Apellido,[Email] = @Email,[Telefono] = @Telefono,[TipoMatricula] = @TipoMatricula,[FechaNacimiento] = @FechaNacimiento,[NumeroMatricula] = @NumeroMatricula,[Especialidad] = @Especialidad WHERE [Id]= @Id ";
+            const string SQL_STATEMENT = "UPDATE Medicos SET [Nombre]= @Nombre,[Apellido] = @Apellido,[Email] = @Email,[Telefono] = @Telefono,[TipoMatricula] = @TipoMatricula,[FechaNacimiento] = @FechaNacimiento,[NumeroMatricula] = @NumeroMatricula,[Especialidad] = @Especialidad WHERE [Id]= @Id ";
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
@@ -94,7 +94,7 @@ namespace Safari.Data
 
         public void Delete(int id)
         {
-            const string SQL_STATEMENT = "DELETE Medico WHERE [Id]= @Id ";
+            const string SQL_STATEMENT = "DELETE Medicos WHERE [Id]= @Id ";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {

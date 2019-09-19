@@ -20,7 +20,9 @@ namespace Safari.UI.Web.Controllers
             ViewBag.Message = "Your application description page.";
             return View();
         }
-        [Route("contacto", Name = "HomeControllerRouteContact")]
+
+        [Authorize(Roles ="Admin")]
+        [Route("nuestra-ubicacion", Name = "HomeControllerRouteContact")]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

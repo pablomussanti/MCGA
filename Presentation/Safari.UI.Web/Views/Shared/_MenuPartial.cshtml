@@ -1,7 +1,12 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    <ul class="nav navbar-nav">
-        <li>@Html.ActionLink("Especie", "Index", "Especie")</li>        
-    </ul>
-}
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-link">@Html.ActionLink("Especie", "Index", "Especie")</li>
+            <li class="nav-link">@Html.ActionLink("Sala", "Index", "Sala")</li>
+            <li class="nav-link">@Html.ActionLink("Medico", "Index", "Medico")</li>
+            <li class="nav-link">@Html.ActionLink("Cliente", "Index", "Cliente")</li>
+        </ul>
+    </div>
+        }

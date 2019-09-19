@@ -21,11 +21,16 @@ namespace Safari.UI.Web
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
+                       //"~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js",
+                       // "~/Content/vendor/jquery/jquery.min.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-united.css",
+              bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/bootstrap1.css",
+                      //"~/Content/vendor/bootstrap/css/bootstrap.min.css",
+                      //"~/Content/css/business-frontpage.css",
                       "~/Content/site.css"));
+
         }
     }
 }
