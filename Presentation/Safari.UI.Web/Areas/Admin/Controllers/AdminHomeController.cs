@@ -8,11 +8,11 @@ using System.Web.Mvc;
 namespace Safari.UI.Web.Areas.Admin.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class HomeController : Controller
+    public class AdminHomeController : Controller
     {
         private ILoggingService _loggingService;
 
-        public HomeController(ILoggingService loggingService)
+        public AdminHomeController(ILoggingService loggingService)
 
 
         {

@@ -11,7 +11,7 @@ namespace Safari.UI.Process
 {
     public class ClienteProcess
     {
-        IClienteService ClienteServices = new ClienteService();
+        IClienteService ClienteServices = Framework.Common.ServiceFactory.Get<IClienteService>();
 
         public List<Cliente> ListarTodos()
         {

@@ -9,4 +9,11 @@
             <li class="nav-link">@Html.ActionLink("Cliente", "Index", "Cliente")</li>
         </ul>
     </div>
-        }
+
+    if (HttpContext.Current.User.IsInRole("Admin"))
+    {
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Home Admin", "Index", "Home", new { area = "Admin" }, null)</li>
+        </ul>
+    }
+}
