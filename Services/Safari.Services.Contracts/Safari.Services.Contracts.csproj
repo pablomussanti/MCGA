@@ -45,6 +45,7 @@
     <Compile Include="IEspecieService.cs" />
     <Compile Include="IMedicoService.cs" />
     <Compile Include="ISalaService.cs" />
+    <Compile Include="ITipoServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\AgregarEspecieRequest.cs" />
     <Compile Include="Responses\AgregarEspecieResponse.cs" />

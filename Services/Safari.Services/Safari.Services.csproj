@@ -46,6 +46,7 @@
     <Compile Include="MedicoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SalaServices.cs" />
+    <Compile Include="TipoServicioServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Business\Safari.Business\Safari.Business.csproj">
