@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Safari.Services.Contracts</RootNamespace>
     <AssemblyName>Safari.Services.Contracts</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -46,6 +46,9 @@
     <Compile Include="IMedicoService.cs" />
     <Compile Include="ISalaService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\AgregarEspecieRequest.cs" />
+    <Compile Include="Responses\AgregarEspecieResponse.cs" />
+    <Compile Include="Responses\ListarTodosEspecieResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Shared\Safari.Entities\Safari.Entities.csproj">

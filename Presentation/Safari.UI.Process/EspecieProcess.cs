@@ -1,6 +1,7 @@
 ﻿using Safari.Entities;
 using Safari.Services;
 using Safari.Services.Contracts;
+using Safari.Services.Contracts.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,13 @@ namespace Safari.UI.Process
         {
             return Especie.ListarTodos();
         }
+
+
+        //public IList<Especie> ToList()
+        //{
+        //var response = HttpGet<ListarTodosEspecieResponse>("api/Especie/ListarTodos", new Dictionary<string, object>(), MediaType.Json);
+        //return response.Result;
+        //}
 
         public Especie Create(Especie especie)
         {

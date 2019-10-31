@@ -27,7 +27,7 @@ namespace Safari.Entities
 
         [DisplayName("Valor")]
         [Required]
-        public double Valor { get; set; }
+        public decimal Valor { get; set; }
 
 
     }
