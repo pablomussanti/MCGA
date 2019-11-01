@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Safari.UI.Process
 {
-    public class EspecieProcess
+    public class EspecieProcess :  ProcessComponent
     {
         IEspecieService Especie = new EspecieService();
 
@@ -20,11 +20,17 @@ namespace Safari.UI.Process
         }
 
 
-        //public IList<Especie> ToList()
-        //{
-        //var response = HttpGet<ListarTodosEspecieResponse>("api/Especie/ListarTodos", new Dictionary<string, object>(), MediaType.Json);
-        //return response.Result;
-        //}
+        public IList<Especie> ToList()
+        {
+            var response = HttpGet<ListarTodosEspecieResponse>("api/Especie/ListarTodos", new Dictionary<string, object>(), MediaType.Json);
+            return response.Result;
+        }
+
+        public Especie Agregarapi(Especie especie)
+        {
+            var request = HttpPost<AgregarEspecieResponse>("api/Especie/Agregar", new Dictionary<string, object>(), MediaType.Json);
+            return request.Result;
+        }
 
         public Especie Create(Especie especie)
         {

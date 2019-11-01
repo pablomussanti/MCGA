@@ -13,7 +13,7 @@
     if (HttpContext.Current.User.IsInRole("Admin"))
     {
         <ul class="nav navbar-nav">
-            <li>@Html.ActionLink("Home Admin", "Index", "Home", new { area = "Admin" }, null)</li>
+            <li>@Html.ActionLink("Home Admin", "Index", "AdminHome", new { area = "Admin" }, null)</li>
         </ul>
     }
 }

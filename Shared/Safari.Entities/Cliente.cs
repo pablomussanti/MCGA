@@ -36,6 +36,7 @@ namespace Safari.Entities
         public string Url { get; set; }
 
         [DisplayName("FechaNacimiento")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Required]
         public DateTime FechaNacimiento { get; set; }
 

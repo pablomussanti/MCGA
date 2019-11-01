@@ -18,7 +18,7 @@ namespace Safari.UI.Web.Controllers
         public ActionResult Index()
         {
             var biz = new EspecieProcess();
-            var lista = biz.ListarTodos();
+            var lista = biz.ToList();
             return View(lista);
         }
         [Authorize]
