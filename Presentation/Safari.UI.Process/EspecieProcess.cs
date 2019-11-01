@@ -1,6 +1,7 @@
 ﻿using Safari.Entities;
 using Safari.Services;
 using Safari.Services.Contracts;
+using Safari.Services.Contracts.Requests;
 using Safari.Services.Contracts.Responses;
 using System;
 using System.Collections.Generic;
@@ -28,8 +29,11 @@ namespace Safari.UI.Process
 
         public Especie Agregarapi(Especie especie)
         {
-            var request = HttpPost<AgregarEspecieResponse>("api/Especie/Agregar", new Dictionary<string, object>(), MediaType.Json);
-            return request.Result;
+
+            var dic = new Dictionary<string, object>();
+            dic.Add("", new AgregarEspecieRequest());
+            var request = HttpPost("api/Especie/Agregar", new AgregarEspecieRequest(), MediaType.Json);
+            return request.Especie;
         }
 
         public Especie Create(Especie especie)
