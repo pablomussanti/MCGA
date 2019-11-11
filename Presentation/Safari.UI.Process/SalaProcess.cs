@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Safari.UI.Process
 {
-    public class SalaProcess
+    public class SalaProcess : ProcessComponent
     {
         ISalaService Salaservices = new SalaServices();
 

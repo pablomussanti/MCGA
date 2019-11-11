@@ -12,7 +12,7 @@ namespace Safari.Services.Contracts
         List<TipoServicio> ListarTodos();
         TipoServicio GetByID(int iD);
         bool Delete(int iD);
-        bool Edit(TipoServicio especie);
-        TipoServicio Create(TipoServicio especie);
+        bool Edit(TipoServicio TipoServicio);
+        TipoServicio Create(TipoServicio TipoServicio);
     }
 }

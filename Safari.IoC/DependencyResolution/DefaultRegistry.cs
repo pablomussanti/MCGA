@@ -43,6 +43,7 @@ namespace Safari.IoC.DependencyResolution {
             For<IClienteService>().Use<ClienteService>();
             For<IMedicoService>().Use<MedicoService>();
             For<ISalaService>().Use<SalaServices>();
+            For<IPacienteService>().Use<PacienteService>();
         }
 
         #endregion

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Safari.UI.Process
 {
-    public class ClienteProcess
+    public class ClienteProcess : ProcessComponent
     {
         IClienteService ClienteServices = Framework.Common.ServiceFactory.Get<IClienteService>();
 

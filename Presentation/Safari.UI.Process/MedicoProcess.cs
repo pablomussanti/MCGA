@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Safari.UI.Process
 {
-    public class MedicoProcess
+    public class MedicoProcess : ProcessComponent
     {
         IMedicoService Medicoservices = new MedicoService();
 

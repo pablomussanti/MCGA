@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Safari.Services.Contracts</RootNamespace>
     <AssemblyName>Safari.Services.Contracts</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -44,6 +44,7 @@
     <Compile Include="IClienteService.cs" />
     <Compile Include="IEspecieService.cs" />
     <Compile Include="IMedicoService.cs" />
+    <Compile Include="IPacienteService.cs" />
     <Compile Include="ISalaService.cs" />
     <Compile Include="ITipoServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
