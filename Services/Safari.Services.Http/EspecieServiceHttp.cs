@@ -17,14 +17,14 @@ namespace Safari.Services.Http
     {
         [HttpPost]
         [Route("Agregar")]
-        public AgregarEspecieResponse Agregar(AgregarEspecieRequest request)
+        public AgregarEspecieDto Agregar(AgregarEspecieDto dto)
         {
             try
             {
-                var response = new AgregarEspecieResponse();
+
                 var bc = new EspecieComponent();
-                response.Result = bc.Create(request.Especie);
-                return response;
+                dto.Result = bc.Create(dto.Result);
+                return dto;
             }
             catch (Exception ex)
             {
@@ -33,6 +33,7 @@ namespace Safari.Services.Http
                     StatusCode = (HttpStatusCode)422, // UNPROCESSABLE ENTITY
                     ReasonPhrase = ex.Message
                 };
+                dto.Message = ex.Message;
                 throw new HttpResponseException(httpError);
             }
         }

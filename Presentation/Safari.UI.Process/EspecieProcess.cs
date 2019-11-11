@@ -27,13 +27,14 @@ namespace Safari.UI.Process
             return response.Result;
         }
 
+
         public Especie Agregarapi(Especie especie)
         {
 
-            var dic = new Dictionary<string, object>();
-            dic.Add("", new AgregarEspecieRequest());
-            var request = HttpPost("api/Especie/Agregar", new AgregarEspecieRequest(), MediaType.Json);
-            return request.Especie;
+            AgregarEspecieDto dto = new AgregarEspecieDto();
+            dto.Result = especie;
+            var request = HttpPost("api/Especie/Agregar", dto, MediaType.Json);
+            return request.Result;
         }
 
         public Especie Create(Especie especie)

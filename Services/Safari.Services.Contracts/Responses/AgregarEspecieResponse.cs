@@ -9,9 +9,14 @@ using System.Threading.Tasks;
 namespace Safari.Services.Contracts.Responses
 {
     [DataContract]
-    public partial class AgregarEspecieResponse
+    public partial class AgregarEspecieDto
     {
         [DataMember]
         public Especie Result { get; set; }
+
+        public int Total { get; set; }
+
+        public string Message { get; set; }
+
     }
 }
