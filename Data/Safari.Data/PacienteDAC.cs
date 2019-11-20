@@ -89,17 +89,18 @@ namespace Safari.Data
                 db.AddInParameter(cmd, "@Observacion", DbType.AnsiString, paciente.Observacion);
                 db.AddInParameter(cmd, "@ClienteId", DbType.AnsiString, paciente.ClienteId);
                 db.AddInParameter(cmd, "@EspecieId", DbType.AnsiString, paciente.EspecieId);
+                db.AddInParameter(cmd, "@Id", DbType.AnsiString, paciente.Id);
                 db.ExecuteNonQuery(cmd);
             }
         }
 
         public void Delete(int id)
         {
-            const string SQL_STATEMENT = "DELETE Paciente WHERE [Id]= @Id ";
+            const string SQL_STATEMENT = "DELETE Paciente WHERE [Id]= @Id";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
-                db.AddInParameter(cmd, "@Id", DbType.Int32, id);
+                db.AddInParameter(cmd, "@Id", DbType.AnsiString, id);
                 db.ExecuteNonQuery(cmd);
             }
         }

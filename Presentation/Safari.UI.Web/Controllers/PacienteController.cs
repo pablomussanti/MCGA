@@ -11,6 +11,7 @@ namespace Safari.UI.Web.Controllers
     public class PacienteController : Controller
     {
         // GET: Paciente
+        public static Cliente clienteoriginal;
         public ActionResult Index(int id)
         {
             
@@ -27,6 +28,7 @@ namespace Safari.UI.Web.Controllers
                     listafinal.Add(item);
                 }
             }
+            clienteoriginal = cliente;
 
             return View(listafinal);
         }
@@ -34,7 +36,9 @@ namespace Safari.UI.Web.Controllers
         // GET: Paciente/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var biz = new PacienteProcess();
+            var paciente = biz.GetByID(id);
+            return View(paciente);
         }
 
         // GET: Paciente/Create
@@ -45,13 +49,15 @@ namespace Safari.UI.Web.Controllers
 
         // POST: Paciente/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Paciente paciente)
         {
             try
             {
-                // TODO: Add insert logic here
+                var biz = new PacienteProcess();
+                paciente.ClienteId = clienteoriginal.Id;
+                var model = biz.Create(paciente);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Paciente", new { id = clienteoriginal.Id });
             }
             catch
             {
@@ -62,45 +68,39 @@ namespace Safari.UI.Web.Controllers
         // GET: Paciente/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var biz = new PacienteProcess();
+            var paciente = biz.GetByID(id);
+            return View(paciente);
         }
 
         // POST: Paciente/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Paciente paciente)
         {
-            try
-            {
-                // TODO: Add update logic here
+            var biz = new PacienteProcess();
+            bool result = biz.Edit(paciente);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            if (result) { return RedirectToAction("Index", "Paciente", new { id = clienteoriginal.Id }); }
+            else { return View(); }
         }
 
         // GET: Paciente/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var biz = new PacienteProcess();
+            var paciente = biz.GetByID(id);
+            return View(paciente);
         }
 
         // POST: Paciente/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Paciente paciente)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var biz = new PacienteProcess();
+            bool result = biz.Delete(paciente.Id);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            if (result) { return RedirectToAction("Index", "Paciente", new { id = clienteoriginal.Id }); }
+            else { return View(); }
         }
     }
 }

@@ -43,7 +43,7 @@ namespace Safari.UI.Web.Controllers
             try
             {
                 var biz = new EspecieProcess();
-                var model = biz.Create(especie);
+                var model = biz.Agregarapi(especie);
 
                 return RedirectToAction("Index");
             }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Safari.Entities;
+using Safari.UI.Process;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,13 +13,17 @@ namespace Safari.UI.Web.Controllers
         // GET: TipoServicio
         public ActionResult Index()
         {
-            return View();
+            var biz = new TipoServicioProcess();
+            var lista = biz.ListarTodos();
+            return View(lista);
         }
 
         // GET: TipoServicio/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var biz = new TipoServicioProcess();
+            var tiposervicio = biz.GetByID(id);
+            return View(tiposervicio);
         }
 
         // GET: TipoServicio/Create
@@ -28,11 +34,12 @@ namespace Safari.UI.Web.Controllers
 
         // POST: TipoServicio/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(TipoServicio tiposervicio)
         {
             try
             {
-                // TODO: Add insert logic here
+                var biz = new TipoServicioProcess();
+                var model = biz.Create(tiposervicio);
 
                 return RedirectToAction("Index");
             }
@@ -45,45 +52,39 @@ namespace Safari.UI.Web.Controllers
         // GET: TipoServicio/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var biz = new TipoServicioProcess();
+            var tiposervicio = biz.GetByID(id);
+            return View(tiposervicio);
         }
 
         // POST: TipoServicio/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, TipoServicio tiposervicio)
         {
-            try
-            {
-                // TODO: Add update logic here
+            var biz = new TipoServicioProcess();
+            bool result = biz.Edit(tiposervicio);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            if (result) { return RedirectToAction("Index"); }
+            else { return View(); }
         }
 
         // GET: TipoServicio/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var biz = new TipoServicioProcess();
+            var tiposervicio = biz.GetByID(id);
+            return View(tiposervicio);
         }
 
         // POST: TipoServicio/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, TipoServicio tiposervicio)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var biz = new TipoServicioProcess();
+            bool result = biz.Delete(tiposervicio.Id);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            if (result) { return RedirectToAction("Index"); }
+            else { return View(); }
         }
     }
 }

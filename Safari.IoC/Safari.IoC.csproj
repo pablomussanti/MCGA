@@ -110,6 +110,10 @@
       <Project>{c1742601-b74e-492e-9465-c4465d9ae02d}</Project>
       <Name>Safari.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Shared\Safari.Entities\Safari.Entities.csproj">
+      <Project>{DED5F661-C299-47EB-AE50-B64BE8FEEBC9}</Project>
+      <Name>Safari.Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Shared\Safari.Framework\Safari.Framework.csproj">
       <Project>{ce444dae-9cbc-4f1d-9049-09489620bf63}</Project>
       <Name>Safari.Framework</Name>
