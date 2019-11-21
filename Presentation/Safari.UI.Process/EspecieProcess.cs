@@ -13,7 +13,7 @@ namespace Safari.UI.Process
 {
     public class EspecieProcess :  ProcessComponent
     {
-        IEspecieService Especie = new EspecieService();
+        IEspecieService Especie = Framework.Common.ServiceFactory.Get<IEspecieService>();
 
         public List<Especie> ListarTodos()
         {

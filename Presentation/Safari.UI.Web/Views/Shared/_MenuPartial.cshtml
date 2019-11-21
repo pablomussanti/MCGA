@@ -8,13 +8,15 @@
             <li class="nav-link">@Html.ActionLink("Medico", "Index", "Medico")</li>
             <li class="nav-link">@Html.ActionLink("Cliente", "Index", "Cliente")</li>
             <li class="nav-link">@Html.ActionLink("TipoServicio", "Index", "TipoServicio")</li>
+            <li class="nav-link">@Html.ActionLink("Precio", "Index", "Precio")</li>
+            <li class="nav-link">@Html.ActionLink("Cita", "Index", "Cita")</li>
         </ul>
     </div>
 
     if (HttpContext.Current.User.IsInRole("Admin"))
     {
         <ul class="nav navbar-nav">
-            <li>@Html.ActionLink("Home Admin", "Index", "AdminHome", new { area = "Admin" }, null)</li>
+            <li>@Html.ActionLink("Panel Admin", "Index", "AdminHome", new { area = "Admin" }, null)</li>
         </ul>
     }
 }

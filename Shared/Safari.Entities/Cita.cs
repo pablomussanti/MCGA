@@ -5,14 +5,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Safari.Entities.Patron_Auditor;
 
 namespace Safari.Entities
 {
-    public partial class Cita : EntityBase
+    public partial class Cita : Auditor 
     {
 
-        [DisplayName("Id")]
-        public override int Id { get; set; }
 
         [DisplayName("Fecha")]
         [Required]

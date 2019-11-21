@@ -17,7 +17,7 @@ namespace Safari.Entities
 
         [DisplayName("TipoServicioId")]
         [Required]
-        public string TipoServicioId { get; set; }
+        public int TipoServicioId { get; set; }
 
         [DisplayName("FechaDesde")]
         [Required]
@@ -29,7 +29,7 @@ namespace Safari.Entities
 
         [DisplayName("Valor")]
         [Required]
-        public Double Valor { get; set; }
+        public decimal Valor { get; set; }
 
     }
 }

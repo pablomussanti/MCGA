@@ -45,6 +45,10 @@ namespace Safari.IoC.DependencyResolution {
             For<ISalaService>().Use<SalaServices>();
             For<IPacienteService>().Use<PacienteService>();
             For<ITipoServicio>().Use<TipoServicioServices>();
+            For<ITipoMovimientoService>().Use<TipoMovimientoServices>();
+            For<IMovimientoService>().Use<MovimientoServices>();
+            For<IPrecioService>().Use<PrecioServices>();
+            For<ICitaService>().Use<CitaServices>();
         }
 
         #endregion

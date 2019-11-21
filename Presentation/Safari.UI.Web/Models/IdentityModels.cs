@@ -30,6 +30,8 @@ namespace Safari.UI.Web.Models
             return new ApplicationDbContext();
         }
 
-   
+        public System.Data.Entity.DbSet<Safari.Entities.Cita> Citas { get; set; }
+
+        public System.Data.Entity.DbSet<Safari.Entities.Precio> Precios { get; set; }
     }
 }

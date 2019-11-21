@@ -11,7 +11,7 @@ namespace Safari.UI.Process
 {
     public class SalaProcess : ProcessComponent
     {
-        ISalaService Salaservices = new SalaServices();
+        ISalaService Salaservices = Framework.Common.ServiceFactory.Get<ISalaService>();
 
         public List<Sala> ListarTodos()
         {

@@ -11,7 +11,7 @@ namespace Safari.UI.Process
 {
     public class TipoServicioProcess : ProcessComponent
     {
-        ITipoServicio TipoServicioServices = new TipoServicioServices();
+        ITipoServicio TipoServicioServices = Framework.Common.ServiceFactory.Get<ITipoServicio>();
 
         public List<TipoServicio> ListarTodos()
         {
