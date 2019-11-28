@@ -14,16 +14,21 @@ namespace Safari.Entities
         public override int Id { get; set; }
 
         [DisplayName("Fecha")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Required]
         public DateTime Fecha { get; set; }
 
-        [DisplayName("ClienteId")]
+        [DisplayName("Cliente")]
         [Required]
         public int ClienteId { get; set; }
 
-        [DisplayName("TipoMovimientoId")]
+        public Cliente Cliente { get; set; }
+
+        [DisplayName("Tipo de Movimiento")]
         [Required]
         public int TipoMovimientoId { get; set; }
+
+        public TipoMovimiento TipoMovimiento { get; set; }
 
         [DisplayName("Valor")]
         [Required]

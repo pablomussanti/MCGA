@@ -30,6 +30,16 @@ namespace Safari.Business
 
         }
 
+        public List<Cita> ListarTodosAuditor()
+        {
+            List<Cita> result = default(List<Cita>);
+
+            var CitaDAC = new CitaDAC();
+            result = CitaDAC.Readcompleto();
+            return result;
+
+        }
+
         public Cita GetByID(int ID)
         {
             Cita result = default(Cita);
@@ -47,14 +57,28 @@ namespace Safari.Business
                 CitaDAC.Update(Cita);
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
                 Console.WriteLine("Error al editar el elemento");
                 return false;
             }
 
         }
+        public bool Delete(int ID)
+        {
+            var citadac = new CitaDAC();
+            try
+            {
+                citadac.Delete(ID);
+                return true;
+            }
+            catch
+            {
+                Console.WriteLine("Error al eliminar el elemento");
+                return false;
+            }
 
+        }
 
 
     }

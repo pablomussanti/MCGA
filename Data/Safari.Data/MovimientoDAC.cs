@@ -21,9 +21,9 @@ namespace Safari.Data
                 using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
                 {
                     db.AddInParameter(cmd, "@Fecha", DbType.AnsiString, movimiento.Fecha);
-                    db.AddInParameter(cmd, "@Valor", DbType.AnsiString, movimiento.Valor);
-                    db.AddInParameter(cmd, "@ClienteId", DbType.AnsiString, movimiento.ClienteId);
-                    db.AddInParameter(cmd, "@TipoMovimientoId", DbType.AnsiString, movimiento.TipoMovimientoId);
+                    db.AddInParameter(cmd, "@Valor", DbType.Decimal, movimiento.Valor);
+                    db.AddInParameter(cmd, "@ClienteId", DbType.Int32, movimiento.ClienteId);
+                    db.AddInParameter(cmd, "@TipoMovimientoId", DbType.Int32, movimiento.TipoMovimientoId);
                     movimiento.Id = Convert.ToInt32(db.ExecuteScalar(cmd));
                 }
             }

@@ -11,6 +11,7 @@ namespace Safari.UI.Web.Controllers
     [Authorize]
     public class SalaController : Controller
     {
+        [Authorize]
         // GET: Sala
         public ActionResult Index()
         {
@@ -23,7 +24,7 @@ namespace Safari.UI.Web.Controllers
         public ActionResult Details(int id)
         {
             var biz = new SalaProcess();
-            var lista = biz.ListarTodos();
+            var lista = biz.GetByID(id);
             return View(lista);
         }
 
@@ -35,20 +36,23 @@ namespace Safari.UI.Web.Controllers
 
         // POST: Sala/Create
         [HttpPost]
-        public ActionResult Create(Sala sala)
+        public ActionResult Create(Sala sala, string item3)
         {
             try
             {
                 var biz = new SalaProcess();
+                sala.TipoSala = item3;
                 var model = biz.Create(sala);
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception sd)
             {
-                return View();
+                return View(sd.Message);
             }
         }
+
+
 
         // GET: Sala/Edit/5
         public ActionResult Edit(int id)
@@ -60,9 +64,10 @@ namespace Safari.UI.Web.Controllers
 
         // POST: Sala/Edit/5
         [HttpPost]
-        public ActionResult Edit(Sala sala)
+        public ActionResult Edit(Sala sala, string item3)
         {
             var biz = new SalaProcess();
+            sala.TipoSala = item3;
             bool result = biz.Edit(sala);
 
             if (result) { return RedirectToAction("Index"); }
@@ -82,6 +87,15 @@ namespace Safari.UI.Web.Controllers
         public ActionResult Delete(Sala sala)
         {
             var biz = new SalaProcess();
+            var bizcita = new CitaProcess();
+
+            foreach (var item in bizcita.ListarTodos())
+            {
+                if (item.SalaId == sala.Id)
+                {
+                    bizcita.Delete(item.Id);
+                }
+            }
             bool result = biz.Delete(sala.Id);
 
             if (result) { return RedirectToAction("Index"); }

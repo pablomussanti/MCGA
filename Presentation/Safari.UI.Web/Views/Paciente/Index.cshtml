@@ -8,9 +8,9 @@
 <h2>Usted esta ingresado en el perfil de: @ViewBag.cliente.Nombre @ViewBag.cliente.Apellido</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo Paciente", "Create")
 </p>
-<table class="table">
+<table class="table" border="1">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ClienteId)
@@ -33,7 +33,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ClienteId)
+            @Html.DisplayFor(modelItem => item.Cliente.Apellido)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FechaNacimiento)
@@ -42,15 +42,15 @@
             @Html.DisplayFor(modelItem => item.Nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EspecieId)
+            @Html.DisplayFor(modelItem => item.Especie.Nombre)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Observacion)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

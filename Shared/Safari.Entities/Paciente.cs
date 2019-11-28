@@ -14,11 +14,14 @@ namespace Safari.Entities
         [DisplayName("Id")]
         public override int Id { get; set; }
 
-        [DisplayName("ClienteId")]
+        [DisplayName("Cliente")]
         [Required]
         public int ClienteId { get; set; }
 
-        [DisplayName("FechaNacimiento")]
+        public Cliente Cliente { get; set; }
+
+        [DisplayName("Fecha de Nacimiento")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Required]
         public DateTime FechaNacimiento { get; set; }
 
@@ -26,9 +29,11 @@ namespace Safari.Entities
         [Required]
         public string Nombre { get; set; }
 
-        [DisplayName("EspecieId")]
+        [DisplayName("Especie")]
         [Required]
         public int EspecieId { get; set; }
+
+        public Especie Especie { get; set; }
 
         [DisplayName("Observacion")]
         [Required]

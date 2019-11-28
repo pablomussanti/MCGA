@@ -17,6 +17,11 @@ namespace Safari.UI.Process
             return CitaServices.ListarTodos();
         }
 
+        public List<Cita> ListarTodosAuditor()
+        {
+            return CitaServices.ListarTodosAuditor();
+        }
+
         public Cita Create(Cita Cita)
         {
             return CitaServices.Create(Cita);
@@ -32,5 +37,9 @@ namespace Safari.UI.Process
             return CitaServices.GetByID(ID);
         }
 
+        public bool Delete(int ID)
+        {
+            return CitaServices.Delete(ID);
+        }
     }
 }

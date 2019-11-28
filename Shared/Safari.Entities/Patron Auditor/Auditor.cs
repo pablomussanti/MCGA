@@ -15,7 +15,7 @@ namespace Safari.Entities.Patron_Auditor
 
         [DisplayName("CreatedBy")]
         [Required]
-        public int CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
 
 
         [DisplayName("CreatedDate")]
@@ -25,7 +25,7 @@ namespace Safari.Entities.Patron_Auditor
 
         [DisplayName("ChangedBy")]
         [Required]
-        public int ChangedBy { get; set; }
+        public string ChangedBy { get; set; }
 
 
         [DisplayName("ChangedDate")]
@@ -35,7 +35,7 @@ namespace Safari.Entities.Patron_Auditor
 
         [DisplayName("DeleteBy")]
         [Required]
-        public int DeleteBy { get; set; }
+        public string DeleteBy { get; set; }
 
         [DisplayName("DeletedDate")]
         [Required]

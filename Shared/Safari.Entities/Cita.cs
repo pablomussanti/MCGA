@@ -14,24 +14,33 @@ namespace Safari.Entities
 
 
         [DisplayName("Fecha")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Required]
         public DateTime Fecha { get; set; }
 
-        [DisplayName("MedicoId")]
+        [DisplayName("Medico")]
         [Required]
         public int MedicoId { get; set; }
 
-        [DisplayName("PacienteId")]
+        public Medico Medico { get; set; }
+
+        [DisplayName("Paciente")]
         [Required]
         public int PacienteId { get; set; }
 
-        [DisplayName("SalaId")]
+        public Paciente Paciente { get; set; }
+
+        [DisplayName("Sala")]
         [Required]
         public int SalaId { get; set; }
 
-        [DisplayName("TipoServicioId")]
+        public Sala Sala { get; set; }
+
+        [DisplayName("Tipo del Servicio")]
         [Required]
         public int TipoServicioId { get; set; }
+
+        public TipoServicio TipoServicio { get; set; }
 
         [DisplayName("Estado")]
         [Required]

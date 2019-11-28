@@ -15,15 +15,19 @@ namespace Safari.Entities
         [DisplayName("Id")]
         public override int Id { get; set; }
 
-        [DisplayName("TipoServicioId")]
+        [DisplayName("Tipo de Servicio")]
         [Required]
         public int TipoServicioId { get; set; }
 
-        [DisplayName("FechaDesde")]
+        public TipoServicio TipoServicio { get; set; }
+
+        [DisplayName("Fecha Desde")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Required]
         public DateTime FechaDesde { get; set; }
 
-        [DisplayName("FechaHasta")]
+        [DisplayName("Fecha Hasta")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Required]
         public DateTime FechaHasta { get; set; }
 

@@ -29,15 +29,16 @@ namespace Safari.Entities
         [Required]
         public string Telefono { get; set; }
 
-        [DisplayName("TipoMatricula")]
+        [DisplayName("Tipo de Matricula")]
         [Required]
         public string TipoMatricula { get; set; }
 
-        [DisplayName("FechaNacimiento")]
+        [DisplayName("Fecha de Nacimiento")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Required]
         public DateTime FechaNacimiento { get; set; }
 
-        [DisplayName("NumeroMatricula")]
+        [DisplayName("Numero de Matricula")]
         [Required]
         public int NumeroMatricula { get; set; }
 

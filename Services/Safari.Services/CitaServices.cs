@@ -17,6 +17,12 @@ namespace Safari.Services
             return CitaComponent.ListarTodos();
         }
 
+        public List<Cita> ListarTodosAuditor()
+        {
+            CitaComponent CitaComponent = new CitaComponent();
+            return CitaComponent.ListarTodosAuditor();
+        }
+
         public Cita Create(Cita Cita)
         {
             CitaComponent CitaComponent = new CitaComponent();
@@ -33,6 +39,12 @@ namespace Safari.Services
         {
             CitaComponent CitaComponent = new CitaComponent();
             return CitaComponent.GetByID(ID);
+        }
+
+        public bool Delete(int ID)
+        {
+            CitaComponent citacomponent = new CitaComponent();
+            return citacomponent.Delete(ID);
         }
     }
 }

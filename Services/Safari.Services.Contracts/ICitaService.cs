@@ -10,8 +10,10 @@ namespace Safari.Services.Contracts
     public interface ICitaService
     {
         List<Cita> ListarTodos();
+        List<Cita> ListarTodosAuditor();
         Cita GetByID(int iD); 
         bool Edit(Cita Cita);
         Cita Create(Cita Cita);
+        bool Delete(int iD);
     }
 }

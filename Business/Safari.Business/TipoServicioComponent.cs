@@ -62,7 +62,7 @@ namespace Safari.Business
                 tiposervicioDAC.Delete(ID);
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
                 Console.WriteLine("Error al eliminar el elemento");
                 return false;

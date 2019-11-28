@@ -35,16 +35,17 @@ namespace Safari.UI.Web.Controllers
 
         // POST: Medico/Create
         [HttpPost]
-        public ActionResult Create(Medico medico)
+        public ActionResult Create(Medico medico, string item2)
         {
             try
             {
                 var biz = new MedicoProcess();
+                medico.TipoMatricula = item2;
                 var model = biz.Create(medico);
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }
@@ -60,9 +61,10 @@ namespace Safari.UI.Web.Controllers
 
         // POST: Medico/Edit/5
         [HttpPost]
-        public ActionResult Edit(Medico medico)
+        public ActionResult Edit(Medico medico,string item2)
         {
             var biz = new MedicoProcess();
+            medico.TipoMatricula = item2;
             bool result = biz.Edit(medico);
 
             if (result) { return RedirectToAction("Index"); }
@@ -82,6 +84,16 @@ namespace Safari.UI.Web.Controllers
         public ActionResult Delete(Medico medico)
         {
             var biz = new MedicoProcess();
+            var bizcita = new CitaProcess();
+            foreach (var item in bizcita.ListarTodos())
+            {
+                if (item.MedicoId == medico.Id)
+                {
+                    bizcita.Delete(item.Id);
+                }
+            }
+
+
             bool result = biz.Delete(medico.Id);
 
             if (result) { return RedirectToAction("Index"); }

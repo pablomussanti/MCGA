@@ -22,7 +22,7 @@ namespace Safari.Entities
 
         [DisplayName("Multiplicador")]
         [Required]
-        public Boolean Multiplicador { get; set; }
+        public int Multiplicador { get; set; }
 
 
     }

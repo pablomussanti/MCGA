@@ -14,7 +14,7 @@ namespace Safari.Data
     {
         public Sala Create(Sala sala)
         {
-            const string SQL_STATEMENT = "INSERT INTO Salas ([Nombre],[TipoSala]) VALUES(@Nombre,@TipoSala);";
+            const string SQL_STATEMENT = "INSERT INTO Sala ([Nombre],[TipoSala]) VALUES(@Nombre,@TipoSala);";
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
@@ -29,7 +29,7 @@ namespace Safari.Data
 
         public List<Sala> Read()
         {
-            const string SQL_STATEMENT = "SELECT [Id], [Nombre],[TipoSala] FROM Salas ";
+            const string SQL_STATEMENT = "SELECT [Id], [Nombre],[TipoSala] FROM Sala ";
 
             List<Sala> result = new List<Sala>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
@@ -49,7 +49,7 @@ namespace Safari.Data
 
         public Sala ReadBy(int id)
         {
-            const string SQL_STATEMENT = "SELECT [Id], [Nombre],[TipoSala] FROM Salas WHERE [Id]=@Id ";
+            const string SQL_STATEMENT = "SELECT [Id], [Nombre],[TipoSala] FROM Sala WHERE [Id]=@Id ";
             Sala sala = null;
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
@@ -69,7 +69,7 @@ namespace Safari.Data
 
         public void Update(Sala sala)
         {
-            const string SQL_STATEMENT = "UPDATE Salas SET [Nombre]= @Nombre,[TipoSala] = @TipoSala WHERE [Id]= @Id ";
+            const string SQL_STATEMENT = "UPDATE Sala SET [Nombre]= @Nombre,[TipoSala] = @TipoSala WHERE [Id]= @Id ";
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
@@ -83,7 +83,7 @@ namespace Safari.Data
 
         public void Delete(int id)
         {
-            const string SQL_STATEMENT = "DELETE Salas WHERE [Id]= @Id ";
+            const string SQL_STATEMENT = "DELETE Sala WHERE [Id]= @Id ";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {

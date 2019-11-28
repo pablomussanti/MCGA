@@ -10,11 +10,13 @@ namespace Safari.UI.Web.Controllers
 {
     public class TipoServicioController : Controller
     {
+        [Authorize]
         // GET: TipoServicio
         public ActionResult Index()
         {
             var biz = new TipoServicioProcess();
             var lista = biz.ListarTodos();
+
             return View(lista);
         }
 
@@ -81,6 +83,15 @@ namespace Safari.UI.Web.Controllers
         public ActionResult Delete(int id, TipoServicio tiposervicio)
         {
             var biz = new TipoServicioProcess();
+            var bizcita = new CitaProcess();
+            foreach (var item in bizcita.ListarTodos())
+            {
+                if (item.TipoServicioId == tiposervicio.Id)
+                {
+                    bizcita.Delete(item.Id);
+                }
+            }
+
             bool result = biz.Delete(tiposervicio.Id);
 
             if (result) { return RedirectToAction("Index"); }

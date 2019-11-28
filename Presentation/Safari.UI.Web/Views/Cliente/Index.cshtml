@@ -10,6 +10,10 @@
 
 
 <div align="center">
+
+    <p>
+        @Html.ActionLink("Crear Nuevo Cliente", "Create")
+    </p>
     <table class="table" border="1">
         <tr>
             <th>
@@ -64,7 +68,7 @@
                     @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
                     @Html.ActionLink("Detalle", "Details", new { id = item.Id }) |
                     @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }) |
-                    @Html.ActionLink("Verificar Mascotas", "Index", "Paciente",  new { id = item.Id },null)
+                    @Html.ActionLink("Verificar Mascotas", "Index", "Paciente", new { id = item.Id }, null)
 
 
                 </td>
@@ -74,7 +78,5 @@
     </table>
 
 
-    <p>
-        @Html.ActionLink("Crear Nuevo Cliente", "Create")
-    </p>
+
 </div>

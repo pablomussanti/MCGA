@@ -18,7 +18,7 @@ namespace Safari.Entities
         [Required]
         public string Nombre { get; set; }
 
-        [DisplayName("TipoSala")]
+        [DisplayName("Tipo de Sala")]
         [Required]
         public string TipoSala { get; set; }
     }

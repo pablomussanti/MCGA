@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Safari.UI.Web.Controllers
 {
+    [Authorize]
     public class ClienteController : Controller
     {
         [Authorize]
@@ -82,6 +83,24 @@ namespace Safari.UI.Web.Controllers
         public ActionResult Delete(Cliente cliente)
         {
             var biz = new ClienteProcess();
+            var bizmascota = new PacienteProcess();
+            var bizmovimiento = new MovimientoProcess();
+
+            foreach (var item in bizmascota.ListarTodos())
+            {
+                if (item.ClienteId == cliente.Id)
+                {
+                    bizmascota.Delete(item.Id);
+                }
+            }
+
+            foreach (var item in bizmovimiento.ListarTodos())
+            {
+                if (item.ClienteId == cliente.Id)
+                {
+                    bizmovimiento.Delete(item.Id);
+                }
+            }
             bool result = biz.Delete(cliente.Id);
 
             if (result) { return RedirectToAction("Index"); }

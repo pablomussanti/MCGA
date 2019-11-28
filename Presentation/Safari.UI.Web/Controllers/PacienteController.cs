@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Safari.UI.Web.Controllers
 {
+    [Authorize]
     public class PacienteController : Controller
     {
         // GET: Paciente
@@ -17,6 +18,7 @@ namespace Safari.UI.Web.Controllers
             
             var biz = new PacienteProcess();
             var bizcliente = new ClienteProcess();
+            var bizespecie = new EspecieProcess();
             var cliente = bizcliente.GetByID(id);
             var lista = biz.ListarTodos();
             var listafinal = new List<Paciente>();
@@ -25,6 +27,8 @@ namespace Safari.UI.Web.Controllers
             {
                 if (item.ClienteId == id)
                 {
+                    item.Especie = bizespecie.GetByID(item.EspecieId);
+                    item.Cliente = bizcliente.GetByID(item.ClienteId);
                     listafinal.Add(item);
                 }
             }
@@ -78,6 +82,7 @@ namespace Safari.UI.Web.Controllers
         public ActionResult Edit(int id, Paciente paciente)
         {
             var biz = new PacienteProcess();
+            paciente.ClienteId = clienteoriginal.Id;
             bool result = biz.Edit(paciente);
 
             if (result) { return RedirectToAction("Index", "Paciente", new { id = clienteoriginal.Id }); }
@@ -97,10 +102,33 @@ namespace Safari.UI.Web.Controllers
         public ActionResult Delete(int id, Paciente paciente)
         {
             var biz = new PacienteProcess();
+            var bizcita = new CitaProcess();
+
+            foreach (var item in bizcita.ListarTodos())
+            {
+                if (item.PacienteId == paciente.Id)
+                {
+                    bizcita.Delete(item.Id);
+                }
+            }
+
+
             bool result = biz.Delete(paciente.Id);
+
+            
 
             if (result) { return RedirectToAction("Index", "Paciente", new { id = clienteoriginal.Id }); }
             else { return View(); }
+        }
+
+
+        public JsonResult Search(string term)
+        {
+            EspecieProcess ep = new EspecieProcess();
+            var especies = ep.ListarTodos();
+            var result = especies.Where(i => i.Nombre.Contains(term)).ToList();
+            return Json(result, JsonRequestBehavior.AllowGet);
+
         }
     }
 }

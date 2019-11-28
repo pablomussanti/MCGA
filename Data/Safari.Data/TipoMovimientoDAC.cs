@@ -98,7 +98,7 @@ namespace Safari.Data
             TipoMovimiento TipoMovimiento = new TipoMovimiento();
             TipoMovimiento.Id = GetDataValue<int>(dr, "Id");
             TipoMovimiento.Nombre = GetDataValue<string>(dr, "Nombre");
-            TipoMovimiento.Multiplicador = GetDataValue<Boolean>(dr, "Multiplicador");
+            TipoMovimiento.Multiplicador = GetDataValue<Int16>(dr, "Multiplicador");
             return TipoMovimiento;
         }
     }

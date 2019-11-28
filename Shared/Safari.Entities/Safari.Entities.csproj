@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calendar.cs" />
     <Compile Include="Cita.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="EntityBase.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Sala.cs" />
     <Compile Include="TipoMovimiento.cs" />
     <Compile Include="TipoServicio.cs" />
+    <Compile Include="VistaMovimiento.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

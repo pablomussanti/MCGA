@@ -182,6 +182,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\CitaAuditoriaController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MovimientoResumenController.cs" />
     <Compile Include="Constants\Application.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CitaController.cs" />
@@ -190,9 +191,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MedicoController.cs" />
+    <Compile Include="Controllers\MovimientoController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Controllers\PrecioController.cs" />
     <Compile Include="Controllers\SalaController.cs" />
+    <Compile Include="Controllers\TipoMovimientoController.cs" />
     <Compile Include="Controllers\TipoServicioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -279,7 +282,6 @@
     </Content>
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -300,6 +302,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
     <Content Include="Areas\Admin\Views\CitaAuditoria\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\MovimientoResumen\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
@@ -413,6 +416,17 @@
     <Content Include="Views\Precio\Create.cshtml" />
     <Content Include="Views\Precio\Edit.cshtml" />
     <Content Include="Views\Precio\Delete.cshtml" />
+    <Content Include="Views\TipoMovimiento\Index.cshtml" />
+    <Content Include="Views\TipoMovimiento\Details.cshtml" />
+    <Content Include="Views\TipoMovimiento\Create.cshtml" />
+    <Content Include="Views\TipoMovimiento\Edit.cshtml" />
+    <Content Include="Views\TipoMovimiento\Delete.cshtml" />
+    <Content Include="Views\Movimiento\Index.cshtml" />
+    <Content Include="Views\Movimiento\Details.cshtml" />
+    <Content Include="Views\Movimiento\Create.cshtml" />
+    <Content Include="Views\Movimiento\Edit.cshtml" />
+    <Content Include="Views\Movimiento\Delete.cshtml" />
+    <Content Include="Views\Cita\Calendar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

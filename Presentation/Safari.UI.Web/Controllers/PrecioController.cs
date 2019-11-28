@@ -10,11 +10,21 @@ namespace Safari.UI.Web.Controllers
 {
     public class PrecioController : Controller
     {
+        [Authorize]
         // GET: Precio
         public ActionResult Index()
         {
             var biz = new PrecioProcess();
             var lista = biz.ListarTodos();
+            var tiposervicioprocess = new TipoServicioProcess();
+            foreach (var item in lista)
+            {
+
+                item.TipoServicio = tiposervicioprocess.GetByID(item.TipoServicioId);
+
+
+            }
+
             return View(lista);
         }
 
@@ -29,6 +39,9 @@ namespace Safari.UI.Web.Controllers
         // GET: Precio/Create
         public ActionResult Create()
         {
+            var biz = new TipoServicioProcess();
+            var lista = biz.ListarTodos();
+            ViewBag.TipoServicioId = new SelectList(lista, "Id", "Nombre");
             return View();
         }
 
@@ -38,8 +51,68 @@ namespace Safari.UI.Web.Controllers
         {
             try
             {
+                var biztp = new TipoServicioProcess();
+                var lista2 = biztp.ListarTodos();
+                ViewBag.TipoServicioId = new SelectList(lista2, "Id", "Nombre");
+                int pasador = 0;
                 var biz = new PrecioProcess();
-                var model = biz.Create(Precio);
+                var model = new Precio();
+                if (Precio.Valor > 0)
+                {
+                    if (Precio.FechaDesde < Precio.FechaHasta)
+                    {
+
+                        pasador = 1;
+
+                    }
+                    else
+                    {
+                        ViewBag.error2 = "Fechas incompatibles";
+                        return View();
+                    }
+
+                }
+                else
+                {
+                    ViewBag.error1 = "Monto invalido";
+                    return View();
+                }
+
+
+                var lista = biz.ListarTodos();
+                if (pasador == 1)
+                {
+                    pasador = 0;  
+                    foreach (var item in lista)
+                    {
+                        if (item.TipoServicioId == Precio.TipoServicioId)
+                        {
+                            if (item.FechaHasta < Precio.FechaDesde)
+                            {
+                                pasador = pasador + 1;
+                            }
+                            else
+                            {
+                                ViewBag.error3 = "Ya existe un monto en esa fecha";
+                                return View();
+                            }
+                        }
+
+                    }
+
+                }
+
+                if (pasador == lista.Count)
+                {
+                    model = biz.Create(Precio);
+
+                    return RedirectToAction("Index");
+                }
+
+
+
+
+                model = biz.Create(Precio);
 
                 return RedirectToAction("Index");
             }

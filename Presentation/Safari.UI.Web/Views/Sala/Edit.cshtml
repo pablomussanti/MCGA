@@ -28,8 +28,12 @@
         <div class="form-group">
             @Html.LabelFor(model => model.TipoSala, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TipoSala, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TipoSala, "", new { @class = "text-danger" })
+                <input type="text" list="items" name="item3">
+                <datalist id="items">
+                    <option value="Recuperación">Recuperación</option>
+                    <option value="Quirófano">Quirófano</option>
+                    <option value="Vacunatorio">Vacunatorio</option>
+                </datalist>
             </div>
         </div>
 

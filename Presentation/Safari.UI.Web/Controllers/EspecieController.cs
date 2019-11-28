@@ -86,6 +86,16 @@ namespace Safari.UI.Web.Controllers
         public ActionResult Delete(Especie especie)
         {
             var biz = new EspecieProcess();
+            var bizpaciente = new PacienteProcess();
+
+            foreach (var item in bizpaciente.ListarTodos())
+            {
+                if (item.EspecieId == especie.Id)
+                {
+                    bizpaciente.Delete(item.Id);
+                }
+            }
+
             bool result = biz.Delete(especie.Id);
 
             if (result) { return RedirectToAction("Index"); }
