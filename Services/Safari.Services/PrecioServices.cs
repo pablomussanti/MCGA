@@ -35,7 +35,7 @@ namespace Safari.Services
             return PrecioComponent.GetByID(ID);
         }
 
-        public bool Delete(int ID)
+        public bool Delete(Precio ID)
         {
             PrecioComponent PrecioComponent = new PrecioComponent();
             return PrecioComponent.Delete(ID);

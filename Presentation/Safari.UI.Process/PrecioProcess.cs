@@ -33,7 +33,7 @@ namespace Safari.UI.Process
             return PrecioServices.GetByID(ID);
         }
 
-        public bool Delete(int ID)
+        public bool Delete(Precio ID)
         {
             return PrecioServices.Delete(ID);
         }

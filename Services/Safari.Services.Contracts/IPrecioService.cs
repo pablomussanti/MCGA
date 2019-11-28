@@ -11,7 +11,7 @@ namespace Safari.Services.Contracts
     {
         List<Precio> ListarTodos();
         Precio GetByID(int iD);
-        bool Delete(int iD);
+        bool Delete(Precio iD);
         bool Edit(Precio Precio);
         Precio Create(Precio Precio);
     }

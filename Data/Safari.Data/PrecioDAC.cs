@@ -84,13 +84,15 @@ namespace Safari.Data
             }
         }
 
-        public void Delete(int id)
+        public void Deleteprecio(Precio id)
         {
-            const string SQL_STATEMENT = "DELETE Precio WHERE [TipoServicioId]= @TipoServicioId ";
+            const string SQL_STATEMENT = "DELETE Precio WHERE [TipoServicioId]= @TipoServicioId and [FechaDesde]= @FechaDesde and [FechaHasta]= @FechaHasta";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
-                db.AddInParameter(cmd, "@TipoServicioId", DbType.Int32, id);
+                db.AddInParameter(cmd, "@TipoServicioId", DbType.Int32, id.Id);
+                db.AddInParameter(cmd, "@FechaDesde", DbType.DateTime, id.FechaDesde);
+                db.AddInParameter(cmd, "@FechaHasta", DbType.DateTime, id.FechaHasta);
                 db.ExecuteNonQuery(cmd);
             }
         }
@@ -103,6 +105,11 @@ namespace Safari.Data
             Precio.FechaDesde = GetDataValue<DateTime>(dr, "FechaDesde");
             Precio.Valor = GetDataValue<decimal>(dr, "Valor");
             return Precio;
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -83,12 +83,22 @@ namespace Safari.UI.Web.Controllers
         public ActionResult Delete(int id, TipoServicio tiposervicio)
         {
             var biz = new TipoServicioProcess();
+            var bizprecio = new PrecioProcess();
             var bizcita = new CitaProcess();
             foreach (var item in bizcita.ListarTodos())
             {
                 if (item.TipoServicioId == tiposervicio.Id)
                 {
                     bizcita.Delete(item.Id);
+                }
+            }
+
+            foreach (var item in bizprecio.ListarTodos())
+            {
+                if (item.TipoServicioId == tiposervicio.Id)
+                {
+                    item.Id = item.TipoServicioId;
+                    bizprecio.Delete(item);
                 }
             }
 

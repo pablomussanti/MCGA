@@ -151,10 +151,15 @@ namespace Safari.UI.Web.Controllers
 
         // POST: Precio/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, Precio precio)
+        public ActionResult Delete(int id, Precio precio, DateTime fechah,DateTime fechad)
         {
             var biz = new PrecioProcess();
-            bool result = biz.Delete(precio.TipoServicioId);
+
+            precio.Id = id;
+            precio.FechaDesde = fechad;
+            precio.FechaHasta = fechah;
+
+            bool result = biz.Delete(precio);
 
             if (result) { return RedirectToAction("Index"); }
             else { return View(); }

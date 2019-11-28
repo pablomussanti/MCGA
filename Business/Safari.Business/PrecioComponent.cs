@@ -55,15 +55,15 @@ namespace Safari.Business
 
         }
 
-        public bool Delete(int ID)
+        public bool Delete(Precio ID)
         {
             var PrecioDAC = new PrecioDAC();
             try
             {
-                PrecioDAC.Delete(ID);
+                PrecioDAC.Deleteprecio(ID);
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
                 Console.WriteLine("Error al eliminar el elemento");
                 return false;
