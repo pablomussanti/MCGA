@@ -69,7 +69,7 @@ namespace Safari.UI.Web.Controllers
 
         // POST: Cita/Create
         [HttpPost]
-        public ActionResult Create(Cita Cita,string item5)
+        public ActionResult Create(Cita Cita,string item5,int hora)
         {
             try
             {
@@ -81,6 +81,8 @@ namespace Safari.UI.Web.Controllers
                 Cita.CreatedBy = idusuario;
                 Cita.Estado = item5;
                 Cita.CreatedDate = DateTime.Now;
+                DateTime fechareal = new DateTime(Cita.Fecha.Year, Cita.Fecha.Month, Cita.Fecha.Day, hora, Cita.Fecha.Minute, Cita.Fecha.Second);
+                Cita.Fecha = fechareal;
                 var model = biz.Create(Cita);
                 contador111 = 0;
                 contador112 = 0;
@@ -267,28 +269,43 @@ namespace Safari.UI.Web.Controllers
         }
 
 
-        public ActionResult Calendar(int id)
+        public ActionResult Calendar()
         {
             return View("Calendar");
         }
 
-        //public JsonResult GetEvents()
-        //{
-        //    //using (Calendar dc = new Calendar())
-        //    //{
-        //    //    var biz = new CitaProcess();
-        //    //    var lista = new List<Calendar>();
+        public JsonResult GetEvents()
+        {
+            using (Calendar dc = new Calendar())
+            {
+                var biz = new CitaProcess();
+                var lista = new List<Calendar>();
 
-        //    //    foreach (var item in biz.ListarTodos())
-        //    //    {
-        //    //        var calendar = new Calendar();
-        //    //        calendar.Description = item.Estado;
-        //    //    }
-        //    //    var lista =
-        //    //    var events = dc.Events.ToList();
-        //    //return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-        //    //}
+                foreach (var item in biz.ListarTodos())
+                {
+                    if (item.Deleted == false)
+                    {
+                        var calendar = new Calendar();
+                        calendar.Description = item.Estado;
 
-        //}
+                        calendar.Start = item.Fecha;
+                        item.Fecha = new DateTime(item.Fecha.Year, item.Fecha.Month, item.Fecha.Day, item.Fecha.Hour + 1, item.Fecha.Minute, item.Fecha.Second);
+                        calendar.End = item.Fecha;
+                        item.Paciente = pacienteprocess.GetByID(item.PacienteId);
+                        item.Sala = SalaProcess.GetByID(item.SalaId);
+                        item.TipoServicio = TipoServicioProcess.GetByID(item.TipoServicioId);
+                        item.Medico = medicoprocess.GetByID(item.MedicoId);
+                        calendar.Subject = string.Format("El paciente {0} tiene turno con {1} en la sala {2} para {3}", item.Paciente.Nombre, item.Medico.Apellido, item.Sala.Nombre, item.TipoServicio.Nombre);
+
+                        lista.Add(calendar);
+                    }
+                    
+                }
+                
+                var events = lista;
+                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+
+        }
     }
 }
