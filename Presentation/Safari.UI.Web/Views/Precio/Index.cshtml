@@ -10,7 +10,7 @@
 <p>
     @Html.ActionLink("Crear nuevo", "Create")
 </p>
-<table class="table" border="1">
+<table class="table table-bordered table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.TipoServicioId)
@@ -27,24 +27,25 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoServicio.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaDesde)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaHasta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valor)
-        </td>
-        <td>
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.TipoServicioId, fechad = item.FechaDesde, fechah = item.FechaHasta })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoServicio.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaDesde)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaHasta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.TipoServicioId, fechad = item.FechaDesde, fechah = item.FechaHasta })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -21,12 +21,12 @@ namespace Safari.UI.Web.Areas.Admin.Controllers
             {
                 item.TipoMovimiento = biztipo.GetByID(item.TipoMovimientoId);
 
-                if (item.TipoMovimiento.Multiplicador == 0)
+                if (item.TipoMovimiento.Multiplicador == 1)
                 {
                     valortotal = valortotal + item.Valor;
                 }
 
-                if (item.TipoMovimiento.Multiplicador == 1)
+                if (item.TipoMovimiento.Multiplicador == 0)
                 {
                     valortotal = valortotal - item.Valor;
                 }

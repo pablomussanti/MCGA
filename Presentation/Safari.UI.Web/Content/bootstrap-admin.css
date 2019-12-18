@@ -338,7 +338,9 @@ progress {
   height: auto;
 }
 
-[type="search"] {
+[type="
+
+"] {
   outline-offset: -2px;
   -webkit-appearance: none;
 }

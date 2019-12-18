@@ -18,7 +18,7 @@ namespace Safari.UI.Web.Controllers
         public ActionResult Index()
         {
             var biz = new EspecieProcess();
-            var lista = biz.ToList();
+            var lista = biz.ListarTodos();
             return View(lista);
         }
         [Authorize]
@@ -43,7 +43,7 @@ namespace Safari.UI.Web.Controllers
             try
             {
                 var biz = new EspecieProcess();
-                var model = biz.Agregarapi(especie);
+                var model = biz.Create(especie);
 
                 return RedirectToAction("Index");
             }
