@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Safari.UI.Web.Controllers
 {
+    [Authorize]
     public class TipoServicioController : Controller
     {
         [Authorize]
@@ -19,7 +20,7 @@ namespace Safari.UI.Web.Controllers
 
             return View(lista);
         }
-
+        [Authorize]
         // GET: TipoServicio/Details/5
         public ActionResult Details(int id)
         {
@@ -27,13 +28,13 @@ namespace Safari.UI.Web.Controllers
             var tiposervicio = biz.GetByID(id);
             return View(tiposervicio);
         }
-
+        [Authorize]
         // GET: TipoServicio/Create
         public ActionResult Create()
         {
             return View();
         }
-
+        [Authorize]
         // POST: TipoServicio/Create
         [HttpPost]
         public ActionResult Create(TipoServicio tiposervicio)
@@ -50,7 +51,7 @@ namespace Safari.UI.Web.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         // GET: TipoServicio/Edit/5
         public ActionResult Edit(int id)
         {
@@ -58,7 +59,7 @@ namespace Safari.UI.Web.Controllers
             var tiposervicio = biz.GetByID(id);
             return View(tiposervicio);
         }
-
+        [Authorize]
         // POST: TipoServicio/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, TipoServicio tiposervicio)
@@ -69,7 +70,7 @@ namespace Safari.UI.Web.Controllers
             if (result) { return RedirectToAction("Index"); }
             else { return View(); }
         }
-
+        [Authorize]
         // GET: TipoServicio/Delete/5
         public ActionResult Delete(int id)
         {
@@ -77,7 +78,7 @@ namespace Safari.UI.Web.Controllers
             var tiposervicio = biz.GetByID(id);
             return View(tiposervicio);
         }
-
+        [Authorize]
         // POST: TipoServicio/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, TipoServicio tiposervicio)

@@ -11,6 +11,7 @@ using Safari.UI.Process;
 
 namespace Safari.UI.Web.Controllers
 {
+    [Authorize]
     public class EspecieController : Controller
     {
         // GET: Especie

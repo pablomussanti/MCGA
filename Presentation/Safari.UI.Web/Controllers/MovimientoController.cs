@@ -8,11 +8,12 @@ using System.Web.Mvc;
 
 namespace Safari.UI.Web.Controllers
 {
+    [Authorize]
     public class MovimientoController : Controller
     {
         ClienteProcess clienteprocess = new ClienteProcess();
         TipoMovimientoProcess tipomovimiento = new TipoMovimientoProcess();
-
+        [Authorize]
         // GET: Movimiento
         public ActionResult Index()
         {
@@ -27,7 +28,7 @@ namespace Safari.UI.Web.Controllers
 
             return View(lista);
         }
-
+        [Authorize]
         // GET: Movimiento/Details/5
         public ActionResult Details(int id)
         {
@@ -35,7 +36,7 @@ namespace Safari.UI.Web.Controllers
             var movimiento = biz.GetByID(id);
             return View(movimiento);
         }
-
+        [Authorize]
         // GET: Movimiento/Create
         public ActionResult Create()
         {
@@ -46,7 +47,7 @@ namespace Safari.UI.Web.Controllers
 
             return View();
         }
-
+        [Authorize]
         // POST: Movimiento/Create
         [HttpPost]
         public ActionResult Create(Movimiento movimiento)
@@ -70,7 +71,7 @@ namespace Safari.UI.Web.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         // GET: Movimiento/Edit/5
         public ActionResult Edit(int id)
         {
@@ -81,7 +82,7 @@ namespace Safari.UI.Web.Controllers
             var movimiento = biz.GetByID(id);
             return View(movimiento);
         }
-
+        [Authorize]
         // POST: Movimiento/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, Movimiento movimiento)
@@ -98,7 +99,7 @@ namespace Safari.UI.Web.Controllers
             else { return View(); }
 
         }
-
+        [Authorize]
         // GET: Movimiento/Delete/5
         public ActionResult Delete(int id)
         {
@@ -106,7 +107,7 @@ namespace Safari.UI.Web.Controllers
             var movimiento = biz.GetByID(id);
             return View(movimiento);
         }
-
+        [Authorize]
         // POST: Movimiento/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, Movimiento Movimiento)

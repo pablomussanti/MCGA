@@ -19,7 +19,7 @@ namespace Safari.UI.Web.Controllers
             var lista = biz.ListarTodos();
             return View(lista);
         }
-
+        [Authorize]
         // GET: Sala/Details/5
         public ActionResult Details(int id)
         {
@@ -27,13 +27,13 @@ namespace Safari.UI.Web.Controllers
             var lista = biz.GetByID(id);
             return View(lista);
         }
-
+        [Authorize]
         // GET: Sala/Create
         public ActionResult Create()
         {
             return View();
         }
-
+        [Authorize]
         // POST: Sala/Create
         [HttpPost]
         public ActionResult Create(Sala sala, string item3)
@@ -53,7 +53,7 @@ namespace Safari.UI.Web.Controllers
         }
 
 
-
+        [Authorize]
         // GET: Sala/Edit/5
         public ActionResult Edit(int id)
         {
@@ -61,7 +61,7 @@ namespace Safari.UI.Web.Controllers
             var Sala = biz.GetByID(id);
             return View(Sala);
         }
-
+        [Authorize]
         // POST: Sala/Edit/5
         [HttpPost]
         public ActionResult Edit(Sala sala, string item3)
@@ -73,7 +73,7 @@ namespace Safari.UI.Web.Controllers
             if (result) { return RedirectToAction("Index"); }
             else { return View(); }
         }
-
+        [Authorize]
         // GET: Sala/Delete/5
         public ActionResult Delete(int id)
         {
@@ -81,7 +81,7 @@ namespace Safari.UI.Web.Controllers
             var Sala = biz.GetByID(id);
             return View(Sala);
         }
-
+        [Authorize]
         // POST: Sala/Delete/5
         [HttpPost]
         public ActionResult Delete(Sala sala)

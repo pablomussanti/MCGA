@@ -12,7 +12,9 @@ namespace Safari.UI.Web.Controllers
     public class PacienteController : Controller
     {
         // GET: Paciente
+       
         public static Cliente clienteoriginal;
+        [Authorize]
         public ActionResult Index(int id)
         {
             
@@ -36,7 +38,7 @@ namespace Safari.UI.Web.Controllers
 
             return View(listafinal);
         }
-
+        [Authorize]
         // GET: Paciente/Details/5
         public ActionResult Details(int id)
         {
@@ -44,13 +46,13 @@ namespace Safari.UI.Web.Controllers
             var paciente = biz.GetByID(id);
             return View(paciente);
         }
-
+        [Authorize]
         // GET: Paciente/Create
         public ActionResult Create()
         {
             return View();
         }
-
+        [Authorize]
         // POST: Paciente/Create
         [HttpPost]
         public ActionResult Create(Paciente paciente)
@@ -68,7 +70,7 @@ namespace Safari.UI.Web.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         // GET: Paciente/Edit/5
         public ActionResult Edit(int id)
         {
@@ -76,7 +78,7 @@ namespace Safari.UI.Web.Controllers
             var paciente = biz.GetByID(id);
             return View(paciente);
         }
-
+        [Authorize]
         // POST: Paciente/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, Paciente paciente)
@@ -88,7 +90,7 @@ namespace Safari.UI.Web.Controllers
             if (result) { return RedirectToAction("Index", "Paciente", new { id = clienteoriginal.Id }); }
             else { return View(); }
         }
-
+        [Authorize]
         // GET: Paciente/Delete/5
         public ActionResult Delete(int id)
         {
@@ -96,7 +98,7 @@ namespace Safari.UI.Web.Controllers
             var paciente = biz.GetByID(id);
             return View(paciente);
         }
-
+        [Authorize]
         // POST: Paciente/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, Paciente paciente)

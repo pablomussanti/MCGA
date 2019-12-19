@@ -11,6 +11,8 @@ namespace Safari.UI.Web.Controllers
     [Authorize]
     public class MedicoController : Controller
     {
+
+        [Authorize]
         // GET: Medico
         public ActionResult Index()
         {
@@ -19,6 +21,8 @@ namespace Safari.UI.Web.Controllers
             return View(lista);
         }
 
+
+        [Authorize]
         // GET: Medico/Details/5
         public ActionResult Details(int id)
         {
@@ -27,12 +31,14 @@ namespace Safari.UI.Web.Controllers
             return View(Medico);
         }
 
+        [Authorize]
+
         // GET: Medico/Create
         public ActionResult Create()
         {
             return View();
         }
-
+        [Authorize]
         // POST: Medico/Create
         [HttpPost]
         public ActionResult Create(Medico medico, string item2)
@@ -50,7 +56,7 @@ namespace Safari.UI.Web.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         // GET: Medico/Edit/5
         public ActionResult Edit(int id)
         {
@@ -58,7 +64,7 @@ namespace Safari.UI.Web.Controllers
             var Medico = biz.GetByID(id);
             return View(Medico);
         }
-
+        [Authorize]
         // POST: Medico/Edit/5
         [HttpPost]
         public ActionResult Edit(Medico medico,string item2)
@@ -70,7 +76,7 @@ namespace Safari.UI.Web.Controllers
             if (result) { return RedirectToAction("Index"); }
             else { return View(); }
         }
-
+        [Authorize]
         // GET: Medico/Delete/5
         public ActionResult Delete(int id)
         {
@@ -78,7 +84,7 @@ namespace Safari.UI.Web.Controllers
             var Medico = biz.GetByID(id);
             return View(Medico);
         }
-
+        [Authorize]
         // POST: Medico/Delete/5
         [HttpPost]
         public ActionResult Delete(Medico medico)

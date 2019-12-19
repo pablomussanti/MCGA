@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Safari.UI.Web.Controllers
 {
+    [Authorize]
     public class PrecioController : Controller
     {
         [Authorize]
@@ -27,7 +28,7 @@ namespace Safari.UI.Web.Controllers
 
             return View(lista);
         }
-
+        [Authorize]
         // GET: Precio/Details/5
         public ActionResult Details(int id)
         {
@@ -35,7 +36,7 @@ namespace Safari.UI.Web.Controllers
             var Precio = biz.GetByID(id);
             return View(Precio);
         }
-
+        [Authorize]
         // GET: Precio/Create
         public ActionResult Create()
         {
@@ -44,7 +45,7 @@ namespace Safari.UI.Web.Controllers
             ViewBag.TipoServicioId = new SelectList(lista, "Id", "Nombre");
             return View();
         }
-
+        [Authorize]
         // POST: Precio/Create
         [HttpPost]
         public ActionResult Create(Precio Precio)
@@ -121,7 +122,7 @@ namespace Safari.UI.Web.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         // GET: Precio/Edit/5
         public ActionResult Edit(int id)
         {
@@ -129,7 +130,7 @@ namespace Safari.UI.Web.Controllers
             var precio = biz.GetByID(id);
             return View(precio);
         }
-
+        [Authorize]
         // POST: Precio/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, Precio precio)
@@ -140,7 +141,7 @@ namespace Safari.UI.Web.Controllers
             if (result) { return RedirectToAction("Index"); }
             else { return View(); }
         }
-
+        [Authorize]
         // GET: Precio/Delete/5
         public ActionResult Delete(int id)
         {
@@ -148,7 +149,7 @@ namespace Safari.UI.Web.Controllers
             var precio = biz.GetByID(id);
             return View(precio);
         }
-
+        [Authorize]
         // POST: Precio/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, Precio precio, DateTime fechah,DateTime fechad)

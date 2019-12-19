@@ -8,9 +8,11 @@ using System.Web.Mvc;
 
 namespace Safari.UI.Web.Controllers
 {
+    [Authorize]
     public class TipoMovimientoController : Controller
     {
         // GET: TipoMovimiento
+        [Authorize]
         public ActionResult Index()
         {
             var biz = new TipoMovimientoProcess();
@@ -18,7 +20,7 @@ namespace Safari.UI.Web.Controllers
 
             return View(lista);
         }
-
+        [Authorize]
         // GET: TipoMovimiento/Details/5
         public ActionResult Details(int id)
         {
@@ -26,13 +28,13 @@ namespace Safari.UI.Web.Controllers
             var tipoMovimiento = biz.GetByID(id);
             return View(tipoMovimiento);
         }
-
+        [Authorize]
         // GET: TipoMovimiento/Create
         public ActionResult Create()
         {
             return View();
         }
-
+        [Authorize]
         // POST: TipoMovimiento/Create
         [HttpPost]
         public ActionResult Create(TipoMovimiento tipomovimiento)
@@ -49,7 +51,7 @@ namespace Safari.UI.Web.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         // GET: TipoMovimiento/Edit/5
         public ActionResult Edit(int id)
         {
@@ -57,7 +59,7 @@ namespace Safari.UI.Web.Controllers
             var tipomovimiento = biz.GetByID(id);
             return View(tipomovimiento);
         }
-
+        [Authorize]
         // POST: TipoMovimiento/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, TipoMovimiento tipomovimiento)
@@ -68,7 +70,7 @@ namespace Safari.UI.Web.Controllers
             if (result) { return RedirectToAction("Index"); }
             else { return View(); }
         }
-
+        [Authorize]
         // GET: TipoMovimiento/Delete/5
         public ActionResult Delete(int id)
         {
@@ -76,7 +78,7 @@ namespace Safari.UI.Web.Controllers
             var tipoMovimiento = biz.GetByID(id);
             return View(tipoMovimiento);
         }
-
+        [Authorize]
         // POST: TipoMovimiento/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, TipoMovimiento tipomovimiento)

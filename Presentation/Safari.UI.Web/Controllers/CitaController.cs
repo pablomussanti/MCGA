@@ -23,6 +23,8 @@ namespace Safari.UI.Web.Controllers
         SalaProcess SalaProcess = new SalaProcess();
         TipoServicioProcess TipoServicioProcess = new TipoServicioProcess();
 
+
+        [Authorize]
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
          
@@ -90,6 +92,7 @@ namespace Safari.UI.Web.Controllers
             //return View(listafiltrada);
         }
 
+        [Authorize]
         // GET: Cita/Details/5
         public ActionResult Details(int id)
         {
@@ -98,6 +101,7 @@ namespace Safari.UI.Web.Controllers
             return View(Cita);
         }
 
+        [Authorize]
         // GET: Cita/Create
         public ActionResult Create()
         {
@@ -110,6 +114,7 @@ namespace Safari.UI.Web.Controllers
         }
 
 
+        [Authorize]
         // POST: Cita/Create
         [HttpPost]
         public ActionResult Create(Cita Cita,string item5,int hora)
@@ -262,7 +267,8 @@ namespace Safari.UI.Web.Controllers
         }
 
         // GET: Cita/Edit/5
-     
+
+        [Authorize]
         public ActionResult Edit(int id)
         {
             var biz = new CitaProcess();
@@ -273,6 +279,8 @@ namespace Safari.UI.Web.Controllers
             ViewBag.PacienteId = new SelectList(pacienteprocess.ListarTodos(), "Id", "Nombre");
             return View(cita);
         }
+
+        [Authorize]
 
         // POST: Cita/Edit/5
         [HttpPost]
@@ -304,6 +312,7 @@ namespace Safari.UI.Web.Controllers
             else { return View(); }
         }
 
+        [Authorize]
 
         // GET: Cita/Delete/5
         public ActionResult Delete(int id)
@@ -313,6 +322,7 @@ namespace Safari.UI.Web.Controllers
             return View(cita);
         }
 
+        [Authorize]
         // POST: Cita/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, Cita cita)
